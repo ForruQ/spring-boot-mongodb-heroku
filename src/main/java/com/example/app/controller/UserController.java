@@ -17,7 +17,6 @@ import com.example.app.response.CommonResponse;
 import com.example.app.service.UserService;
 
 @RestController
-@RequestMapping("/user")
 @CrossOrigin(origins = "*")
 public class UserController {
 
@@ -34,6 +33,12 @@ public class UserController {
 	public ResponseEntity<List<UserEntity>> getUserList() {
 		List<UserEntity> response = userService.getUserList();
 		return new ResponseEntity<List<UserEntity>>(response, HttpStatus.OK);
+
+	}
+	
+	@GetMapping("/")
+	public String homePage() {
+		return "Heroku Runs Fine";
 
 	}
 
